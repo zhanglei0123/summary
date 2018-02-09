@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>弹出层示例</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../styles/common.css">
+</head>
+
+<style>
+    /*相册层样式*/
+    .layer-photos-demo img {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+<ul class="index-area">
+    <li>目录</li>
+    <li><a href="#alert">弹层--alert</a></li>
+    <li><a href="#load">加载层--load</a></li>
+    <li><a href="#msg">提示层--msg</a></li>
+    <li><a href="#confirm">询问层--confirm</a></li>
+    <li><a href="#tips">tips层--tips</a></li>
+    <li><a href="#prompt">输入层--prompt</a></li>
+    <li><a href="#tab">tab层--tab</a></li>
+    <li><a href="#photos">相册层--photos</a></li>
+    <li><a href="#offset">offset--坐标展示</a></li>
+    <li><a href="#anim">动画展示</a></li>
+    <li><a href="#other">其他功能</a></li>
+</ul>
+
+<div class="index-title inner">
+    <h2>弹出层插件--layer</h2>
+    <p>某些内置方法和一些参数</p>
+    <p>1、layer.ready(callback)：初始化就绪。layer.open(options)：原始核心方法。layer.alert(content, options, yes)：普通信息框。
+        layer.confirm(content, options, yes, cancel)：询问框。layer.msg(content, options, end)：提示框。
+        layer.load(icon, options)：加载层。layer.tips(content, follow, options)：tips层。
+        layer.close(index)：关闭特定层。layer.closeAll(type)：关闭所有层。
+        layer.style(index, cssStyle)：重新定义层的样式。layer.title(title, index)：改变层的标题。
+        layer.getChildFrame(selector, index)：获取iframe页的DOM。
+        layer.getFrameIndex(windowName)：获取特定iframe层的索引。layer.iframeAuto(index)：指定iframe层自适应。
+        layer.iframeSrc(index, url)：重置特定iframe url。layer.setTop(layero)：置顶当前窗口。
+
+    </p>
+    <p>2、open方法时需要设置type（0：信息框，默认；1：页面层；2：iframe层；3：加载层；4：tips层）
+        title：标题。String/Array/Boolean均可。content：内容。String/DOM/Array
+    </p>
+    <p>3、skin：关于自定义皮肤用到时再查看官网</p>
+    <p>4、area：宽高。String/Array。</p>
+    <p>5、time：自动关闭所需毫秒。id：用于控制弹层唯一标识。</p>
+    <p>6、maxWidth：最大宽度。maxHeight：最大高度。只有当area: 'auto'时，设定才有效。</p>
+    <p>7、full/min/restore：分别代表最大化、最小化、还原 后触发的回调。可以手工执行。
+        layer.full()、layer.min()、layer.restore()：手工执行最大小化</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="alert"></a>
+    <div class="title">alert弹层，同时展示icon--load</div>
+    <div class="content">
+        <button class="alert0">alert（黄色叹号）</button>
+        <button class="alert1">alert（绿色对号）</button>
+        <button class="alert2">alert（红色叉号）</button>
+        <button class="alert3">alert（黄色问号）</button>
+        <button class="alert4">alert（灰色锁）</button>
+        <button class="alert5">alert（红色哭脸）</button>
+        <button class="alert6">alert（绿色笑脸）</button>
+    </div>
+    <p>信息框默认不显示图标。当你想显示图标时，默认皮肤可以传入0-6</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="load"></a>
+    <div class="title">加载层三种icon--load</div>
+    <div class="content">
+        <button class="loading0">load0（橙色立体）</button>
+        <button class="loading1">load1（灰色转圈-稀）</button>
+        <button class="loading2">load2（灰色转圈-密）</button>
+    </div>
+    <p>加载层，icon可以传入0-2</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="msg"></a>
+    <div class="title">提示层,同时展示icon示例--msg</div>
+    <div class="content">
+        <button class="msg">msg（默认）</button>
+        <button class="msg1">msg（带icon）</button>
+    </div>
+    <p>提示层也同样有0-6的icon，作为展示，如果没有icon，则显示黑色背景，有则显示白色背景</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="confirm"></a>
+    <div class="title">询问层回调--confirm</div>
+    <div class="content">
+        <button class="confirm">confirm（回调）</button>
+        <button class="success">success（成功后的回调）</button>
+        <button class="yes">yes（确定按钮回调）</button>
+        <button class="cancel">cancel（右上角关闭按钮）</button>
+        <button class="end">end（层销毁）</button>
+    </div>
+</div>
+
+<div class="inner detail-content">
+    <a name="tips"></a>
+    <div class="title">tips层--tips</div>
+    <div class="content">
+        <button class="tips1">tips1（上）</button>
+        <button class="tips2">tips2（右）</button>
+        <button class="tips3">tips3（下）</button>
+        <button class="tips4">tips4（左）</button>
+        <button class="tipsMore">tipsMore</button>
+    </div>
+    <p>需要写一个依附的类或id</p>
+    <p>用1-4这四个参数按照上右下左表示tips在元素什么位置展示，同时可以设置颜色。tips: [4,"#ff8c00"]</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="prompt"></a>
+    <div class="title">输入层--prompt</div>
+    <div class="content">
+        <button class="prompt0">prompt0（文本--默认）</button>
+        <button class="prompt1">prompt1（密码）</button>
+        <button class="prompt2">prompt2（多行文本）</button>
+    </div>
+    <p>formType: 输入框类型，支持0（文本--默认）1（密码）2（多行文本）</p>
+    <p>maxlength: 可输入文本的最大长度，默认500</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="tab"></a>
+    <div class="title">tab层--tab</div>
+    <div class="content">
+        <button class="tab">tab</button>
+    </div>
+    <p>内容可以是自己写进去的，也可以是加载进去的DOM元素</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="photos"></a>
+    <div class="title">相册层--photos</div>
+    <div class="content">
+        <button class="photos-json">photos-json</button>
+    </div>
+    <p>photos支持传入json和直接读取页面图片两种方式</p>
+    <p>photos还有个tab回调，切换图片时触发。在下例中展示。控制台查看</p>
+    <div id="layer-photos-demo" class="layer-photos-demo">
+        <img layer-pid="图片id，可以不写" layer-src="../images/timg.jpg" src="../images/timg.jpg" alt="图片名1">
+        <img layer-pid="图片id，可以不写" layer-src="../images/timg.jpg" src="../images/timg.jpg" alt="图片名2">
+    </div>
+</div>
+
+<div class="inner detail-content">
+    <a name="offset"></a>
+    <div class="title">offset--坐标展示</div>
+    <div class="content">
+        <button class="offset-t">offset-t（上）</button>
+        <button class="offset-r">offset-r（右）</button>
+        <button class="offset-b">offset-b（下）</button>
+        <button class="offset-l">offset-l（左）</button>
+        <button class="offset-lt">offset-lt（左上）</button>
+        <button class="offset-lb">offset-lb（左下）</button>
+        <button class="offset-rt">offset-rt（右上）</button>
+        <button class="offset-rb">offset-rb（右下）</button>
+    </div>
+    <p>auto默认；可以设置一项时top值；top、left用数组。其余分别用英文单词首字母代表位置</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="anim"></a>
+    <div class="title">动画展示</div>
+    <div class="content">
+        <button class="anim0">anim0（默认-平滑放大）</button>
+        <button class="anim1">anim1（从上往下）</button>
+        <button class="anim2">anim2（从下往上）</button>
+        <button class="anim3">anim3（从左滑过）</button>
+        <button class="anim4">anim4（从左翻滚）</button>
+        <button class="anim5">anim5（渐显）</button>
+        <button class="anim6">anim6（抖动）</button>
+        <button class="isOutAnim">isOutAnim（关闭动画）</button>
+    </div>
+    <p>关闭动画指的是，弹框关闭时的默认动画可以取消</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="other"></a>
+    <div class="title">其他功能展示</div>
+    <div class="content">
+        <button class="maxmin">maxmin（最大化最小化）</button>
+        <button class="fixed">fixed（固定）</button>
+        <button class="resize">resize（是否允许拉伸）</button>
+        <button class="resizing">resizing（监听窗口拉伸动作）</button>
+        <button class="zIndex">zIndex（层叠顺序）</button>
+        <button class="scrollbar">scrollbar（是否允许浏览器出现滚动条）</button>
+        <button class="move">move（触发拖动的元素）</button>
+        <button class="moveOut">moveOut（是否允许拖拽到窗口外）</button>
+        <button class="moveEnd">moveEnd（拖动完毕后的回调方法）</button>
+        <button class="btn">btn</button>
+        <button class="btnAlign">btnAlign（位置）</button>
+        <button class="closeBtn">closeBtn（关闭按钮）</button>
+        <button class="shade">shade（遮罩及点击遮罩关闭）</button>
+    </div>
+</div>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="../script/common.js"></script>
+<script src="../plugins/layer/layer.js"></script>
+<script>
+    $(function(){
+        //alert
+        $(document).on("click",".alert0",function () {
+           layer.alert("icon: 0",{
+               icon: 0
+           })
+        });
+        $(document).on("click",".alert1",function () {
+            layer.alert("icon: 1",{
+                icon: 1
+            })
+        });
+        $(document).on("click",".alert2",function () {
+            layer.alert("icon: 2",{
+                icon: 2
+            })
+        });
+        $(document).on("click",".alert3",function () {
+            layer.alert("icon: 3",{
+                icon: 3
+            })
+        });
+        $(document).on("click",".alert4",function () {
+            layer.alert("icon: 4",{
+                icon: 4
+            })
+        });
+        $(document).on("click",".alert5",function () {
+            layer.alert("icon: 5",{
+                icon: 5
+            })
+        });
+        $(document).on("click",".alert6",function () {
+            layer.alert("icon: 6",{
+                icon: 6
+            })
+        });
+
+        //加载层
+        $(document).on("click",".loading0",function () {
+            layer.load(0,{
+                shade: [0.3,"#fff"],
+                time: 2000
+            });
+        });
+        $(document).on("click",".loading1",function () {
+            layer.load(1,{
+                shade: [0.3,"#fff"],
+                time: 2000
+            });
+        });
+        $(document).on("click",".loading2",function () {
+            layer.load(2,{
+                shade: [0.3,"#fff"],
+                time: 2000
+            });
+        });
+
+        //提示层
+        $(document).on("click",".msg",function () {
+            layer.msg("玩命提示中",{
+                time: 0
+            });
+        });
+        $(document).on("click",".msg1",function () {
+            layer.msg("带有icon的提示，遮罩自己加的",{
+                icon: 5,
+                shade: [0.3,"#000"],
+                time: 0
+            });
+        });
+
+        //询问层
+        $(document).on("click",".confirm",function () {
+            layer.confirm('您是如何看待前端开发？', {
+                btn: ['重要','奇葩','再来一个'],
+                btn1: function (index,layero) {
+                    layer.msg("按钮一的回调")
+                },
+                btn2: function () {
+                    layer.msg("按钮二的回调")
+                },
+                btn3: function () {
+                    layer.msg("按钮三的回调")
+                },
+                cancel: function () {
+                    layer.msg("右上角关闭回调")
+                }
+            });
+        });
+        $(document).on("click",".success",function () {
+            layer.confirm('success--弹出后的成功回调方法。控制台查看。层创建完毕时',{
+                success: function (layero, index) {
+                    console.log('成功')
+                }
+            });
+        });
+        $(document).on("click",".yes",function () {
+            layer.confirm('yes--确定按钮回调方法。控制台查看。如果设定了yes回调，需进行手工关闭。layer.close(index)',{
+                yes: function (index, layero) {
+                    console.log('确定回调');
+                    layer.close(index); //如果设定了yes回调，需进行手工关闭
+                }
+            });
+        });
+        $(document).on("click",".cancel",function () {
+            layer.confirm('cancel --右上角关闭按钮触发的回调。控制台查看',{
+                cancel: function(index, layero){
+                    console.log('右上角关闭按钮回调')
+                }
+            });
+        });
+        $(document).on("click",".end",function () {
+            layer.confirm('end --层销毁后触发的回调。无论是确认还是取消，只要层被销毁了，end都会执行，不携带任何参数。',{
+                end: function(){
+                    console.log('层销毁')
+                }
+            });
+        });
+
+        //tips层
+        $(document).on("click",".tips1",function () {
+            layer.tips('我在上边展示', '.tips1',{
+                tips: [1,"#ff8c00"]
+            });
+        });
+        $(document).on("click",".tips2",function () {
+            layer.tips('我在右边展示', '.tips2',{
+                tips: [2,"#ff8c00"]
+            });
+        });
+        $(document).on("click",".tips3",function () {
+            layer.tips('我在下边展示', '.tips3',{
+                tips: [3,"#ff8c00"]
+            });
+        });
+        $(document).on("click",".tips4",function () {
+            layer.tips('我在左边展示', '.tips4',{
+                tips: [4,"#ff8c00"]
+            });
+        });
+        $(document).on("click",".tipsMore",function () {
+           layer.tips('不会销毁之前的tips哦','.tipsMore',{
+               tips: [2,"#ff8c00"],
+               tipsMore: true
+           })
+        });
+
+        //prompt层
+        $(document).on("click",".prompt0",function () {
+            layer.prompt({
+                title: '输入层--文本（默认）',
+                formType: 0
+            });
+        });
+        $(document).on("click",".prompt1",function () {
+            layer.prompt({
+                title: '输入层--密码',
+                formType: 1
+            });
+        });
+        $(document).on("click",".prompt2",function () {
+            layer.prompt({
+                title: '输入层--多行文本',
+                formType: 2
+            });
+        });
+
+        //tab层
+        $(document).on("click",".tab",function () {
+            layer.tab({
+                area: ['600px', '300px'],
+                tab: [{
+                    title: 'TAB1',
+                    content: '内容1'
+                }, {
+                    title: 'TAB2',
+                    content: '内容2'
+                }, {
+                    title: 'TAB3',
+                    content: '内容3'
+                }]
+            });
+        });
+
+        //相册层
+        $(document).on("click",".photos-json",function(){
+            $.getJSON('../ml.json', function(json){
+                layer.photos({
+                    photos: json
+                });
+            });
+        });
+        layer.photos({
+            photos: '#layer-photos-demo',
+            tab: function (pic, layero) {
+                console.log(pic) //当前图片的一些信息
+            }
+        });
+
+        //动画展示
+        $(document).on("click",".anim0",function () {
+            layer.alert('anim0', {
+                anim: 0
+            });
+        });
+        $(document).on("click",".anim1",function () {
+            layer.alert('anim1', {
+                anim: 1
+            });
+        });
+        $(document).on("click",".anim2",function () {
+            layer.alert('anim2', {
+                anim: 2
+            });
+        });
+        $(document).on("click",".anim3",function () {
+            layer.alert('anim3', {
+                anim: 3
+            });
+        });
+        $(document).on("click",".anim4",function () {
+            layer.alert('anim4', {
+                anim: 4
+            });
+        });
+        $(document).on("click",".anim5",function () {
+            layer.alert('anim5', {
+                anim: 5
+            });
+        });
+        $(document).on("click",".anim6",function () {
+            layer.alert('anim6', {
+                anim: 6
+            });
+        });
+        $(document).on("click",".isOutAnim",function () {
+            layer.alert('isOutAnim: false', {
+                isOutAnim: false
+            });
+        });
+
+        //offset坐标展示
+        $(document).on("click",".offset-t",function () {
+            layer.alert('我在顶部', {
+                shade: 0,
+                offset: 't'
+            });
+        });
+        $(document).on("click",".offset-r",function () {
+            layer.alert('我在右边', {
+                shade: 0,
+                offset: 'r'
+            });
+        });
+        $(document).on("click",".offset-b",function () {
+            layer.alert('我在底部', {
+                shade: 0,
+                offset: 'b'
+            });
+        });
+        $(document).on("click",".offset-l",function () {
+            layer.alert('我在左边', {
+                shade: 0,
+                offset: 'l'
+            });
+        });
+        $(document).on("click",".offset-lt",function () {
+            layer.alert('我在左上', {
+                shade: 0,
+                offset: 'lt'
+            });
+        });
+        $(document).on("click",".offset-lb",function () {
+            layer.alert('我在左下', {
+                shade: 0,
+                offset: 'lb'
+            });
+        });
+        $(document).on("click",".offset-rt",function () {
+            layer.alert('我在右上', {
+                shade: 0,
+                offset: 'rt'
+            });
+        });
+        $(document).on("click",".offset-rb",function () {
+            layer.alert('我在右下', {
+                shade: 0,
+                offset: 'rb'
+            });
+        });
+
+        //其他功能
+        $(document).on("click",".maxmin",function () {
+            layer.open({
+                type: 1,
+                content: '设置了宽高，右上角出现最大化最小化按钮',
+                area: ['600px', '400px'],
+                maxmin: true
+            })
+        });
+        $(document).on("click",".fixed",function () {
+            layer.alert('设置fixed: false。鼠标滚动时，随鼠标滚动，默认不动',{
+                fixed: false
+            })
+        });
+        $(document).on("click",".resize",function () {
+            layer.alert('右下角拖动被禁止，该参数对loading、tips层无效',{
+                resize: false
+            })
+        });
+        $(document).on("click",".resizing",function () {
+            layer.alert('当拖拽弹层右下角对窗体进行尺寸调整时，如果设定了该回调，则会执行。回调返回一个参数：当前层的DOM对象。控制台查看',{
+                resizing: function(layero){
+                    console.log(layero);
+                }
+            })
+        });
+        $(document).on("click",".zIndex",function () {
+            layer.alert('一般用于解决和其它组件的层叠冲突。',{
+                zIndex: 999
+            })
+        });
+        $(document).on("click",".scrollbar",function () {
+            layer.alert('屏蔽浏览器滚动',{
+                scrollbar: false
+            })
+        });
+        $(document).on("click",".move",function () {
+            layer.alert('默认是触发标题区域拖拽。如果你想单独定义，指向元素的选择器或者DOM即可。如move: \'.mine-move\'。你还配置设定move: false来禁止拖拽',{
+                move: false
+            })
+        });
+        $(document).on("click",".moveOut",function () {
+            layer.alert('默认只能在窗口内拖拽，如果你想让拖到窗外，那么设定moveOut: true即可',{
+                moveOut: true
+            })
+        });
+        $(document).on("click",".moveEnd",function () {
+            layer.alert('默认不会触发moveEnd，如果你需要，设定moveEnd: function(layero){}即可。其中layero为当前层的DOM对象。控制台查看',{
+                moveEnd: function (layero) {
+                    console.log(layero)
+                }
+            })
+        });
+        $(document).on("click",".btn",function () {
+            layer.alert('按钮可以添加多个，同理回调也可以一一对应,这里没有回调，回调在询问层那里展示',{
+                btn: ['btn1','btn2','btn3']
+            })
+        });
+        $(document).on("click",".btnAlign",function () {
+            layer.confirm('按钮位置,btnAlign用"l","c"来改变', {
+                btn: ['左边'],
+                btnAlign: 'l'
+            });
+        });
+        $(document).on("click",".closeBtn",function () {
+            layer.confirm('两种风格的关闭按钮，可通过配置1（默认）和2来展示，如果不显示，则closeBtn: 0', {
+                closeBtn: 2
+            });
+        });
+        $(document).on("click",".shade",function () {
+            layer.alert('shade：遮罩。默认是0.3透明度的黑色背景（\'#000\'）。' +
+                '可以定义别的颜色，shade: [0.8, \'#393D49\']；不想显示遮罩，shade: 0。' +
+                'shadeClose：是否点击遮罩关闭。', {
+                shadeClose: true,
+                shade: [0.8, '#393D49']
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

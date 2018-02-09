@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>开关效果</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../plugins/honey-switch/honeySwitch.css">
+    <link rel="stylesheet" type="text/css" href="../styles/common.css">
+</head>
+<body>
+
+<div class="inner index-title">
+    <h2>开关效果--honeySwitch</h2>
+    <p>引入honeySwitch.css和honeySwitch.js</p>
+    <p>仿手机端的一个开关按钮，插件在PC和手机端都是用，不支持IE8，在IE8中做了单独处理，会展示一个边框</p>
+    <p>在原有的基础上，做了改变，添加了可以写进文字的功能。</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">honeySwitch的使用--基本</div>
+    <div class="content">
+        <span class="switch-off"></span>
+        <span class="switch-on"></span>
+    </div>
+    <p>switch-off表示默认关闭，switch-on表示默认开启</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">honeySwitch的使用--禁用</div>
+    <div class="content">
+        <span class="switch-on switch-disabled"></span>
+    </div>
+    <p>添加class:switch-disabled.按钮被禁用</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">honeySwitch的使用--改变颜色大小</div>
+    <div class="content">
+        <span class="switch-on" themeColor="#2195DE" width="80"></span>
+    </div>
+    <p>1.默认主题色为绿色,直接使用js的方式（honeySwitch.themeColor="颜色值";）修改默认主题色。</p>
+    <p>2.定制单个元素主题色，给元素添加themeColor="颜色值"属性</p>
+    <p>3.定制单个元素大小，给元素添加width="80"属性</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">honeySwitch的使用--回调</div>
+    <div class="content">
+        <span class="switch-on" id="switch"></span>
+    </div>
+    <p>switchEvent("#id", function () {}, function () {});</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">honeySwitch扩展--添加文字</div>
+    <div class="content">
+        <span class="switch-on" haveword="true" openword="通过" closeword="不通过" width="80"></span>
+    </div>
+    <p>1、haveword="true"属性，代表元素是否含有文字</p>
+    <p>2、openword=""属性，是开启状态显示的文字</p>
+    <p>3、closeword=""属性，是关闭状态显示的文字</p>
+</div>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="../plugins/honey-switch/honeySwitch.js"></script>
+<script>
+    $(function () {
+        switchEvent("#switch",function(){
+            alert("开")
+        },function(){
+            alert("关").sibling()
+        });
+    });
+</script>
+
+</body>
+</html>

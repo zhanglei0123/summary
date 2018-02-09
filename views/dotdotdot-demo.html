@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>多行文本显示省略号示例</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../styles/common.css">
+</head>
+<style>
+    .single-text {
+        width: 300px;
+        line-height: 22px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .more-text {
+        width: 300px;
+        line-height: 22px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }
+    .more-text-02{
+        width: 300px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+        position: relative;
+        line-height: 22px;
+        max-height: 58px;
+        overflow: hidden;
+    }
+    .more-text-02::after{
+        content: "...";
+        position: absolute;
+        bottom: 4px;
+        right: 0;
+        padding-left: 25px;
+        background: linear-gradient(to right, transparent, #fff 55%);
+    }
+
+    .dot-text-01 {
+        max-height: 120px;
+        width: 300px;
+        line-height: 22px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+    }
+
+    .dot-text-02 {
+        max-height: 120px;
+        width: 300px;
+        line-height: 22px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+    }
+
+    .dot-text-03 {
+        max-height: 120px;
+        width: 300px;
+        line-height: 22px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+    }
+    /*展开收起*/
+    .opened
+    {
+        height: auto;
+    }
+    .toggle .close,
+    .opened .toggle .open
+    {
+        display: none;
+    }
+    .toggle .opened,
+    .opened .toggle .close
+    {
+        display: inline;
+    }
+
+    .dot-text-04 {
+        width: 300px;
+        line-height: 22px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+    }
+    /*文件名缩写*/
+    .pathname {
+        height: 25px;
+    }
+
+    .dot-text-05 {
+        max-height: 120px;
+        width: 300px;
+        line-height: 22px;
+        padding: 8px;
+        border: 1px solid #e5e5e5;
+    }
+    /*鼠标划上展示全部内容*/
+    .supplier-title {
+        position: relative;
+        z-index: 99;
+        width: 100%;
+        line-height: 20px;
+        padding: 5px;
+        color: #4c4c4c;
+        background-color: #f5f5f5;
+        border: 1px solid #d1d1d1;
+    }
+</style>
+<body>
+
+<div class="index-title inner">
+    <h2>多行文本显示省略号--dotdotdot</h2>
+    <p>1、一行文本显示省略号可以使用CSS属性解决：overflow: hidden; text-overflow: ellipsis; white-space: nowrap;</p>
+    <p>2、多行文本溢出--CSS解决：display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;</p>
+    <p>3、多行文本溢出--跨浏览器兼容，详细css见代码</p>
+    <p>4、dot插件使用时需要设定一个最大高度(max-height)，来决定显示多少文字</p>
+    <p>5、类似的插件网上有很多，我选了其中一个，但是因为有写功能有些bug，所以示例用的插件有些改动</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">单行文本显示省略号--CSS解决</div>
+    <div class="content">
+        <div class="single-text">
+            单行文本显示省略号单行文本显示省略号单行文本显示省略号单行文本显示省略号
+            单行文本显示省略号单行文本显示省略号单行文本显示省略号单行文本显示省略号单行文本显示省略号
+            单行文本显示省略号
+        </div>
+    </div>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">多行文本溢出--CSS解决</div>
+    <div class="content">
+        <div class="more-text">
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出
+        </div>
+    </div>
+    <p>因使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端；</p>
+    <p>
+        -webkit-line-clamp：用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：
+        display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。
+        -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。
+    </p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">多行文本溢出--CSS解决--跨浏览器兼容的方案</div>
+    <div class="content">
+        <div class="more-text-02 ">
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出
+        </div>
+    </div>
+    <p>用伪元素after和定位的方式仿写…，通过设定高度来决定显示几行</p>
+    <p>此方法的缺陷是：文本未超出也会有…显示，可以用js优化</p>
+    <p>借助已封装好的插件--dotdotdot也比较方便，见下一个示例</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">dotdotdot插件</div>
+    <div class="content">
+        <div class="dot-text-01">
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出
+        </div>
+    </div>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">dotdotdot插件--有省略号加自己定义内容</div>
+    <div class="content">
+        <div class="dot-text-02">
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出
+            <a href="javascript:void (0)" class="readmore">更多</a>
+        </div>
+    </div>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">dotdotdot插件--展开收起</div>
+    <div class="content">
+        <div class="dot-text-03">
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出
+        </div>
+    </div>
+    <p>展开收起需要提供显示隐藏的CSS样式。</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">dotdotdot插件--文件名称缩写</div>
+    <div class="content">
+        <ul class="dot-text-04">
+            <li class="pathname">summary/views/autocomplete-demo.html</li>
+            <li class="pathname">summary/views-autocomplete-demoautocomplete-demo/autocomplete-demo.html</li>
+        </ul>
+    </div>
+    <p>文件缩写时，需要固定高度，缩写的是最后一个“/”之前的文本，最后一个“/”之后的文字截取之后展示</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">dotdotdot插件--扩展--鼠标划上显示全部内容</div>
+    <div class="content">
+        <div class="dot-text-05">
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出
+            多行文本溢出多行文本溢出
+        </div>
+    </div>
+    <p>提供展示全部内容的样式即可，类名样式都自行设定，类名与js调用弹框时的名称相同即可，弹框默认隐藏</p>
+</div>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="../plugins/jQuery.dotdotdot/jquery.dotdotdot.js"></script>
+<script>
+    $(function () {
+        // 基本做法
+        $('.dot-text-01').dotdotdot();
+        //自定义内容
+        $('.dot-text-02').dotdotdot({
+            after: 'a.readmore'
+        });
+        // 展开收起
+        (function ($) {
+            var $dot3 = $('.dot-text-03');
+            $dot3.append( ' <a class="toggle" href="#">' +
+                '<span class="open">[ 展开 ]</span>' +
+                '<span class="close">[ 收起 ]</span>' +
+                '</a>');
+            function createDots()
+            {
+                $dot3.dotdotdot({
+                    after: 'a.toggle'
+                });
+            }
+            function destroyDots() {
+                $dot3.trigger( 'destroy' );
+            }
+            createDots();
+            $dot3.on(
+                'click',
+                'a.toggle',
+                function() {
+                    $dot3.toggleClass( 'opened' );
+                    if ( $dot3.hasClass( 'opened' ) ) {
+                        destroyDots();
+                    } else {
+                        createDots();
+                    }
+                    return false;
+                }
+            );
+        })(jQuery);
+
+        // 文件名称缩写
+        $('.dot-text-04 .pathname').each(function() {
+            var path = $(this).html().split( '/' );
+            if ( path.length > 1 ) {
+                var name = path.pop();
+                $(this).html( path.join( '/' ) + '<span class="filename">/' + name + '</span>' );
+                $(this).dotdotdot({
+                    after: '.filename',
+                    wrap: 'letter'
+                });
+            }
+        });
+
+        //鼠标划上之后展示省略的全部内容
+        $(".dot-text-05").dotdotdot({
+            'hover':'supplier-title'//supplier-title为鼠标划上之后显示的弹出框的类名，单独控制样式就好了，不用写html，可根据实际情况起另外的类名或id
+        });
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+@charset "utf-8";
+/*重置jquery-autocomplete样式,*/
+/*正常页面中的样式-宽度*/
+.autocomplete-suggestions {
+    border: 1px solid #999;
+    overflow: auto;
+    background-color: #fdfdfd;
+}
+.autocomplete-suggestions .autocomplete-suggestion,
+.autocomplete-suggestions .autocomplete-no-suggestion {
+    height: 30px;
+    line-height: 29px;
+    padding: 0 10px;
+    border-top: 1px dashed #d9d9d9;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.autocomplete-suggestions .autocomplete-suggestion:first-child,
+.autocomplete-suggestions .autocomplete-no-suggestion {
+    border-top: 0;
+}
+.autocomplete-suggestions .autocomplete-suggestion.autocomplete-selected {
+    color: #1a80d4;
+}
+/*!*模态框中的样式-宽度*!*/
+/*.modal .autocomplete-father {*/
+    /*position: relative;*/
+/*}*/
+/*.modal .autocomplete-suggestions {*/
+    /*position: absolute;*/
+    /*width: 275px !important;*/
+    /*left: 0;*/
+    /*top: 29px;*/
+/*}*/

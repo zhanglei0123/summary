@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>模糊查询示例</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../plugins/jQuery-Autocomplete/autocomplete.css">
+    <link rel="stylesheet" href="../styles/common.css">
+</head>
+<style>
+    .normal-autoComplete {
+        width: 240px;
+        height: 30px;
+        line-height: 28px;
+        border: 1px solid #c1c1c1;
+        padding-left: 5px;
+    }
+</style>
+<body>
+
+<div class="inner">
+    <div class="index-title">
+        <h2>模糊查询--jQuery-Autocomplete</h2>
+        <p>关于模糊查询样式有单独css,可以按需要修改，类名固定</p>
+        <p>具体的功能需要依据需求和实际来配置参数或者自己改进来实现。</p>
+        <p>插件中查询结果为空是否有提示语及提示语的默认值做过修改，因为觉得默认有这个功能体验会好</p>
+    </div>
+
+    <input class="normal-autoComplete" type="text" placeholder="请输入关键词模糊查询">
+</div>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="../plugins/jQuery-Autocomplete/jquery.autocomplete.min.js"></script>
+<script>
+    $(function () {
+        var data = [
+            'Anaheim DucksAnaheim DucksAnaheim DucksAnaheim Ducks',
+            '中国人中国人',
+            'Boston Bruins',
+            'Buffalo Sabres',
+            'Calgary Flames',
+            'Carolina Hurricanes',
+            'Chicago Blackhawks',
+            'Colorado Avalanche',
+            'Columbus Blue Jackets',
+            'Dallas Stars',
+            'Detroit Red Wings',
+            'Edmonton OIlers',
+            'Florida Panthers',
+            'Los Angeles Kings',
+            'Minnesota Wild',
+            'Montreal Canadiens',
+            'Nashville Predators',
+            'New Jersey Devils',
+            'New Rork Islanders',
+            'New York Rangers',
+            'Ottawa Senators',
+            'Philadelphia Flyers',
+            'Phoenix Coyotes',
+            'Pittsburgh Penguins',
+            'Saint Louis Blues',
+            'San Jose Sharks',
+            'Tampa Bay Lightning',
+            'Toronto Maple Leafs',
+            'Vancouver Canucks',
+            'Washington Capitals'
+        ];
+
+        //模糊查询代码
+        $('.normal-autoComplete').autocomplete({
+            lookup: data
+        });
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>日期选择</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../plugins/jedate/skin/jedate.css">
+    <link rel="stylesheet" type="text/css" href="../styles/common.css">
+</head>
+<body>
+
+<div class="inner index-title">
+    <h2>日期选择--jeDate</h2>
+    <p>1、常规选择：用format属性设置"YYYY"或者"YYYY-MM-DD"之类的内容，就能显示相应的日历样式。</p>
+    <p>2、区域选择：加属性range，参数内容是连接方式 "~"或着"至"之类的</p>
+    <p>3、区域范围双面板：multiPane属性为false</p>
+    <p>4、自定义格式：与常规选择一样，foramt属性根据自己意愿展示，"YYYY年MM月DD日"</p>
+    <p>5、其它功能："isinitVal: true"默认有初始赋值；"trigger:"dblclick""双击触发日历；</p>
+    <p>6、有效/无效日期限制："valiDate:["0[4-7]$,1[1-5]$,2[58]$",true],"为true时有效日期正向限制，false无效日期反向限制</p>
+    <p>7、valiDate:["1$,3$,6$,9$",true],无效日期正向限制，false无效日期反向限制</p>
+    <p>8、valiDate:["%1,%3,%6,%9,%12,%15,%25",true],指定日期正向限制，false时反向</p>
+    <p>9、isShow属性为false则直接展示日历</p>
+    <p>10、onClose为false时，不用点击确定，弹层就关闭</p>
+    <p>11、回调函数用okfun:function(obj){}，参数只能是obj，obj的值包括：elem、val、data三个</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">常规选择</div>
+    <ul class="clearfix">
+        <li>
+            <label>年选择</label>
+            <input type="text" class="jeinput" id="test01" placeholder="YYYY">
+        </li>
+        <li>
+            <label>年月选择</label>
+            <input type="text" class="jeinput" id="test02" placeholder="YYYY-MM">
+        </li>
+        <li>
+            <label>年月日选择</label>
+            <input type="text" class="jeinput" id="test03" placeholder="YYYY-MM-DD">
+        </li>
+        <li>
+            <label>年月日时分秒选择</label>
+            <input type="text" class="jeinput" id="test04" placeholder="YYYY-MM-DD hh:mm:ss">
+        </li>
+        <li>
+            <label>时分秒选择</label>
+            <input type="text" class="jeinput" id="test05" placeholder="hh:mm:ss">
+        </li>
+    </ul>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">区域范围选择</div>
+    <ul class="clearfix">
+        <li>
+            <label>年范围选择</label>
+            <input type="text" class="jeinput" id="test06" placeholder="YYYY">
+        </li>
+        <li>
+            <label>年月范围选择</label>
+            <input type="text" class="jeinput" id="test07" placeholder="YYYY-MM">
+        </li>
+        <li>
+            <label>日范围选择</label>
+            <input type="text" class="jeinput" id="test08" placeholder="YYYY-MM-DD">
+        </li>
+        <li>
+            <label>开始时间</label>
+            <input type="text" class="jeinput" id="start" placeholder="输入开始时间">
+        </li>
+        <li>
+            <label>结束时间</label>
+            <input type="text" class="jeinput" id="end" placeholder="输入结束时间">
+        </li>
+    </ul>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">区域范围双面板选择</div>
+    <ul class="clearfix">
+        <li>
+            <label>年范围选择</label>
+            <input type="text" class="jeinput" id="test09" placeholder="YYYY">
+        </li>
+        <li>
+            <label>年月范围选择</label>
+            <input type="text" class="jeinput" id="test10" placeholder="YYYY-MM">
+        </li>
+        <li>
+            <label>日范围选择</label>
+            <input type="text" class="jeinput" id="test11" placeholder="YYYY-MM-DD">
+        </li>
+    </ul>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">自定义格式选择</div>
+    <ul class="clearfix">
+        <li>
+            <label>自定义格式</label>
+            <input type="text" class="jeinput" id="test12" placeholder="YYYY年MM月DD日">
+        </li>
+        <li>
+            <label>自定义格式</label>
+            <input type="text" class="jeinput" id="test13" placeholder="MM-DD-YYYY">
+        </li>
+        <li>
+            <label>自定义格式</label>
+            <input type="text" class="jeinput" id="test14" placeholder="DD/MM/YYYY">
+        </li>
+    </ul>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">一次绑定多个选择</div>
+    <ul class="clearfix">
+        <li>
+            <input type="text" class="jeinput moredate" placeholder="YYYY年MM月DD日">
+        </li>
+        <li>
+            <input type="text" class="jeinput moredate" placeholder="YYYY-MM-DD">
+        </li>
+        <li>
+            <input type="text" class="jeinput moredate" placeholder="YYYY/MM/DD">
+        </li>
+    </ul>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">其它功能展示选择</div>
+    <ul class="clearfix">
+        <li>
+            <label>默认初始赋值</label>
+            <input type="text" class="jeinput" id="test15" placeholder="YYYY-MM-DD">
+        </li>
+        <li>
+            <label>选中后的回调</label>
+            <input type="text" class="jeinput" id="test16" placeholder="YYYY-MM-DD">
+        </li>
+        <!--<li>-->
+            <!--<label>日期切换的回调</label>-->
+            <!--<input type="text" class="jeinput" id="test17" placeholder="YYYY-MM-DD">-->
+        <!--</li>-->
+        <li>
+            <label>双击输入框触发</label>
+            <input type="text" class="jeinput" id="test18" placeholder="YYYY-MM-DD">
+        </li>
+        <li>
+            <label>设置自定义值</label>
+            <input type="text" class="jeinput" id="test19" placeholder="YYYY-MM-DD">
+        </li>
+    </ul>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">有效、无效日期限制</div>
+    <ul class="clearfix">
+        <li>
+            <label >有效日期正向限制</label>
+           <input type="text" class="jeinput" id="test20" placeholder="YYYY年MM月DD日">
+        </li>
+        <li>
+            <label>无效日期正向限制</label>
+            <input type="text" class="jeinput" id="test22" placeholder="YYYY年MM月DD日">
+        </li>
+        <li>
+            <label>指定日期正向限制</label>
+            <input type="text" class="jeinput" id="test24" placeholder="YYYY年MM月DD日">
+        </li>
+        <li>
+            <label>有效日期反向限制</label>
+            <input type="text" class="jeinput" id="test21" placeholder="YYYY年MM月DD日">
+        </li>
+        <li>
+            <label>无效日期反向限制</label>
+            <input type="text" class="jeinput" id="test23" placeholder="YYYY年MM月DD日">
+        </li>
+        <li>
+            <label>指定日期反向限制</label>
+            <input type="text" class="jeinput" id="test25" placeholder="YYYY年MM月DD日">
+        </li>
+    </ul>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">直接展示日历</div>
+    <ul class="clearfix">
+        <li id="show01"></li>
+        <li id="show02"></li>
+        <li id="show03"></li>
+        <li id="show04"></li>
+    </ul>
+</div>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="../plugins/jedate/jquery.jedate.js"></script>
+<script>
+    $(function () {
+        var start = {
+            format: 'YYYY-MM-DD hh:mm:ss',
+            onClose: false,
+            okfun: function (obj) {
+                end.minDate = obj.val;
+                console.log(obj)
+            }
+        };
+        var end = {
+            format: 'YYYY-MM-DD hh:mm:ss',
+            onClose: false,
+            okfun: function (obj) {
+                start.maxDate = obj.val;
+                // $("#start").jeDate(start);
+            }
+        };
+        $("#start").jeDate(start);
+        $("#end").jeDate(end);
+
+        //常规选择
+        $("#test01").jeDate({
+            format: "YYYY"
+        });
+        $("#test02").jeDate({
+            format: "YYYY-MM"
+        });
+        $("#test03").jeDate({
+            format: "YYYY-MM-DD"
+        });
+        $("#test04").jeDate({
+            format: "YYYY-MM-DD hh:mm:ss"
+        });
+        $("#test05").jeDate({
+            format: "hh:mm:ss"
+        });
+        //区域范围选择
+        $("#test06").jeDate({
+            format: "YYYY",
+            range:" ~ "
+        });
+        $("#test07").jeDate({
+            format: "YYYY-MM",
+            range:" To "
+        });
+        $("#test08").jeDate({
+            format: "YYYY-MM-DD",
+            range:" 至 "
+        });
+        //区域范围双面板选择
+        $("#test09").jeDate({
+            format: "YYYY",
+            multiPane:false,
+            range:" ~ "
+        });
+        $("#test10").jeDate({
+            format: "YYYY-MM",
+            multiPane:false,
+            range:" To "
+        });
+        $("#test11").jeDate({
+            format: "YYYY-MM-DD",
+            multiPane:false,
+            range:" 至 "
+        });
+        //自定义格式选择
+        $("#test12").jeDate({
+            format: "YYYY年MM月DD日"
+        });
+        $("#test13").jeDate({
+            format: "MM-DD-YYYY"
+        });
+        $("#test14").jeDate({
+            format: "DD/MM/YYYY"
+        });
+        //一次绑定多个选择
+        $(".moredate").each(function(){
+            var mat = $(this).attr("placeholder");
+            $(this).jeDate({
+                format: mat
+            });
+        });
+        //其它功能展示选择
+        $("#test15").jeDate({
+            format: "YYYY-MM-DD",
+            isinitVal: true
+        });
+        $("#test16").jeDate({
+            format: "YYYY-MM-DD",
+            okfun:function (obj) {
+                alert('你选择的日期是：' + obj.val)
+            }
+        });
+        // $("#test17").jeDate({
+        //     format: "YYYY-MM-DD",
+        //     toggle:function (obj) {
+        //         alert('你选择的日期是：' + obj.val + '\n\n获得的对象是' + JSON.stringify(obj.data));
+        //     }
+        // });
+        $("#test18").jeDate({
+            trigger:"dblclick",
+            format: "YYYY-MM-DD"
+        });
+        var custom = $("#test19").jeDate({
+            format: "YYYY-MM-DD"
+        });
+        custom.setValue("2017-09-01");
+        //有效、无效日期限制
+        $("#test20").jeDate({
+            valiDate:["0[4-7]$,1[1-5]$,2[58]$",true],
+            format: "YYYY年MM月DD日"
+        });
+        $("#test21").jeDate({
+            valiDate:["0[4-7]$,1[1-5]$,2[58]$",false],
+            format: "YYYY年MM月DD日"
+        });
+        $("#test22").jeDate({
+            valiDate:["1$,3$,6$,9$",true],
+            format: "YYYY年MM月DD日"
+        });
+        $("#test23").jeDate({
+            valiDate:["1$,3$,6$,9$",false],
+            format: "YYYY年MM月DD日"
+        });
+        $("#test24").jeDate({
+            valiDate:["%1,%3,%6,%9,%12,%15,%25",true],
+            format: "YYYY年MM月DD日"
+        });
+        $("#test25").jeDate({
+            valiDate:["%1,%3,%6,%9,%12,%15,%25",false],
+            format: "YYYY年MM月DD日"
+        });
+        //直接展示日历
+        $("#show01").jeDate({
+            isShow:false,
+            format: "YYYY-MM-DD"
+        });
+        $("#show02").jeDate({
+            isShow:false,
+            format: "YYYY-MM"
+        });
+        $("#show03").jeDate({
+            isShow:false,
+            format: "YYYY"
+        });
+        $("#show04").jeDate({
+            isShow:false,
+            format: "hh:mm:ss"
+        });
+    });
+</script>
+
+</body>
+</html>

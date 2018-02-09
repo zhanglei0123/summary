@@ -1,0 +1,502 @@
+@charset "UTF-8";
+ul li {
+    float: left;
+    margin: 20px 50px 20px 0;
+}
+
+.hidden-box {
+    overflow: hidden;
+}
+/*圆及椭圆*/
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: #2195DE;
+    /*border-radius: 25px;*/
+    border-radius: 50%;
+}
+.oval {
+    width: 100px;
+    height: 50px;
+    background: #2195DE;
+    border-radius: 50px / 25px;
+}
+.ring {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 10px solid #2195DE;
+}
+
+/*三角形*/
+.triangle-left {
+    border-top: 20px solid transparent;
+    border-right: 15px solid #2195DE;
+    border-bottom: 20px solid transparent;
+}
+.triangle-bottom {
+    border-top: 15px solid #2195DE;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+}
+.triangle-right {
+    border-top: 20px solid transparent;
+    border-left: 15px solid #2195DE;
+    border-bottom: 20px solid transparent;
+}
+.triangle-top {
+    border-bottom: 40px solid #2195DE;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+}
+.triangle-zhijiao {
+    border-bottom: 40px solid #2195DE;
+    border-right: 40px solid transparent;
+}
+.triangle-arrow {
+    position: relative;
+    width: 80px;
+    height: 2px;
+    background-color: #2195DE;
+}
+.triangle-arrow::before {
+    position: absolute;
+    top: -19px;
+    left: -1px;
+    z-index: -1;
+    content: '';
+    border-top: 20px solid transparent;
+    border-right: 30px solid #2195DE;
+    border-bottom: 20px solid transparent;
+}
+.triangle-arrow:after {
+    position: absolute;
+    top: -17px;
+    left: 2px;
+    z-index: -1;
+    content: '';
+    border-top: 18px solid transparent;
+    border-right: 28px solid #fff;
+    border-bottom: 18px solid transparent;
+}
+.triangle-tip {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #2195DE;
+}
+.triangle-tip:before {
+    position: absolute;
+    top: 15px;
+    left: -15px;
+    content: '';
+    border-top: 8px solid transparent;
+    border-right: 15px solid #2195DE;
+    border-bottom: 8px solid transparent;
+}
+.triangle-tip:after {
+    position: absolute;
+    top: 16px;
+    left: -13px;
+    content: '';
+    border-top: 7px solid transparent;
+    border-right: 14px solid #fff;
+    border-bottom: 7px solid transparent;
+}
+
+/*平行四边形*/
+.parallelogram {
+    width: 80px;
+    height: 50px;
+    transform: skew(20deg);
+    background-color: #2195DE;
+}
+
+/*梯形*/
+.trapezoid {
+    height: 0;
+    width: 100px;
+    border-bottom: 50px solid #2195DE;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+}
+
+/*五角星*/
+.pentagon {
+    position: relative;
+    width: 100px;
+    border-top: 50px solid #2195DE;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+}
+.pentagon:before {
+    position: absolute;
+    content: "";
+    top: -90px;
+    left: -25px;
+    border-bottom: 40px solid #2195DE;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
+}
+.star-five {
+    position: relative;
+    border-right: 80px solid transparent;
+    border-top: 50px  solid #2195DE;
+    border-left: 80px solid transparent;
+}
+.star-five:before {
+    position: absolute;
+    top: -54px;
+    left: -81px;
+    content: '';
+    border-right: 80px solid transparent;
+    border-top: 50px  solid #2195DE;
+    border-left: 80px solid transparent;
+    transform: rotate(-72deg);
+}
+.star-five:after {
+    position: absolute;
+    content: '';
+    top: -54px;
+    left: -81px;
+    border-right: 80px solid transparent;
+    border-top: 50px  solid #2195DE;
+    border-left: 80px solid transparent;
+    transform: rotate(72deg);
+}
+
+/*六边形*/
+.hexagon {
+    width: 50px;
+    height: 80px;
+    background-color: #2195DE;
+    position: relative;
+}
+.hexagon:before {
+    position: absolute;
+    content: "";
+    left: -25px;
+    border-top: 40px solid transparent;
+    border-right: 25px solid #2195DE;
+    border-bottom: 40px solid transparent;
+}
+.hexagon:after {
+    position: absolute;
+    content: "";
+    right: -25px;
+    border-top: 40px solid transparent;
+    border-left: 25px solid #2195DE;
+    border-bottom: 40px solid transparent;
+}
+.hexagon2 {
+    width: 70px;
+    height: 80px;
+    overflow: hidden;
+    border: 1px solid #2195DE;
+    transform: rotate(-60deg) skewY(30deg);
+}
+.hexagon2 .hexagon-in {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #2195DE;
+    transform: skewY(-30deg) rotate(60deg);
+}
+.hexagon2 .hexagon-in img {
+    width: 100%;
+    height: 100%
+}
+.star-six {
+     border-bottom: 80px solid #2195DE;
+     border-right: 40px solid transparent;
+     border-left: 40px solid transparent;
+     position: relative;
+ }
+.star-six:before {
+    position: absolute;
+    content: "";
+    left: -40px;
+    top: 28px;
+    border-top: 80px solid #2195DE;
+    border-right: 40px solid transparent;
+    border-left: 40px solid transparent;
+}
+
+.hexagon4,
+.hexagon4:before,
+.hexagon4:after{
+    width: 50px;
+    height: 86px;
+    border: 1px solid #2195DE;
+    border-top: none;
+    border-bottom: none;
+    /*border-left: none;*/
+    /*border-right: none;*/
+}
+.hexagon4{
+    position: relative;
+    transform:rotate(30deg);
+}
+.hexagon4:before{
+    display: block;
+    content: ' ';
+    transform:rotate(60deg);
+}
+.hexagon4:after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: ' ';
+    transform:rotate(-60deg);
+}
+
+/*六边形网格布局*/
+.hexagon-box {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: -10px;
+}
+.hexagon-box:nth-child(9n+1) {
+    margin-left: 40px;
+}
+.hexagon-hexagon {
+    width: 70px;
+    height: 80px;
+    overflow: hidden;
+    /*border: 1px solid #2195DE;*/
+    transform: rotate(-60deg) skewY(30deg);
+}
+.hexagon-hexagon .hexagon-in {
+    width: 100%;
+    height: 100%;
+    /*border: 1px solid #2195DE;*/
+    transform: skewY(-30deg) rotate(60deg);
+}
+.hexagon-hexagon .hexagon-in img {
+    width: 100%;
+    height: 100%
+}
+
+/*八边形*/
+.octagon {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    transform: rotate(45deg);
+    border: 1px solid #2195DE;
+    /*background-color: #2195DE;*/
+    position: relative;
+}
+.octagon:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+    border: 1px solid #2195DE;
+    /*background-color: #2195DE;*/
+}
+.burst-8 {
+    width: 100px;
+    height: 100px;
+    transform: rotate(20deg);
+    background-color: #2195DE;
+    position: relative;
+}
+.burst-8:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    transform: rotate(135deg);
+    background-color: #2195DE;
+}
+
+/*十二角星*/
+.burst-12 {
+    width: 100px;
+    height: 100px;
+    background-color: #2195DE;
+    position: relative;
+}
+.burst-12:before,
+.burst-12:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #2195DE;
+}
+.burst-12:before {
+    transform: rotate(30deg);
+}
+.burst-12:after {
+    transform: rotate(60deg);
+}
+
+/*爱心*/
+.heart {
+    width: 100px;
+    height: 80px;
+    position: relative;
+}
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 75px;
+    background-color: #2195DE;
+    border-radius: 50% 50% 0 0;
+}
+.heart:before {
+    left: 19px;
+    transform: rotate(45deg);
+}
+.heart:after {
+    transform: rotate(-45deg);
+}
+
+/*无穷大*/
+.infinity {
+    width: 130px;
+    height: 60px;
+    position: relative;
+}
+.infinity:before,
+.infinity:after {
+    position: absolute;
+    content: '';
+    width: 60px;
+    height: 60px;
+    border: 10px solid #2195DE;
+}
+.infinity:before {
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(-45deg);
+}
+.infinity:after {
+    right: 0;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(45deg);
+}
+.infinity2 {
+    width: 60px;
+    height: 60px;
+    border: 10px solid #2195DE;
+    border-radius: 0 50% 0 50%;
+    transform: rotate(-45deg);
+}
+
+/*食人豆*/
+.pacman {
+    border-right: 60px solid transparent;
+    border-top: 60px solid #2195DE;
+    border-left: 60px solid #2195DE;
+    border-bottom: 60px solid #2195DE;
+    border-radius: 50%;
+}
+
+/*钻石*/
+.cut-diamond {
+    height: 0;
+    width: 50px;
+    border-right: 12px solid transparent;
+    border-bottom: 20px solid #2195DE;
+    border-left: 12px solid transparent;
+    position: relative;
+}
+.cut-diamond:before {
+    position: absolute;
+    content: '';
+    top: 20px;
+    left: -12px;
+    border-right: 25px solid transparent;
+    border-top: 40px solid #2195DE;
+    border-left: 25px solid transparent;
+}
+
+/*蛋形*/
+.egg {
+    width: 50px;
+    height: 80px;
+    background: #2195DE;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+/*扇形*/
+.sector {
+    width:0;
+    height:0;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-top: 100px solid #2195DE;
+    border-radius:50%;
+}
+
+/*月牙*/
+.moon {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    box-shadow: 15px 0 0 0 #2195DE;
+}
+.moon2 {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    box-shadow: 15px 0 0 16px #2195DE;
+}
+
+/*八卦图*/
+.yin-yang {
+    width: 96px;
+    height: 96px;
+    background: #fff;
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+    border-bottom: 50px solid transparent;
+    border-left: 2px solid #333;
+    border-radius: 50%;
+    position: relative;
+}
+.yin-yang:before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    width: 46px;
+    height: 46px;
+    background-color: #fff;
+    border: 18px solid #333;
+    border-radius: 50%;
+}
+.yin-yang:after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    background-color: #333;
+    border: 18px solid #fff;
+    border-radius:50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

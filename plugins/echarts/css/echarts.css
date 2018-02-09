@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.echart-style{
+	margin-top: 30px;
+	border: 1px solid #e5e5e5;
+	border-right: none;
+	height: 200px;
+}
+.echart-left{
+	float: left;
+}
+.echart-right{
+	float: right;
+}
+.echart-left,
+.echart-right{
+	display: inline-block;
+    width: 49.9%;
+    border-right: 1px solid #e5e5e5;
+    height: 100%;
+}
+
+
+
+
+
+
+
+

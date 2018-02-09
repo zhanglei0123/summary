@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>jQ方法总结</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../styles/common.css">
+</head>
+<body>
+
+<div class="inner index-title">
+    <h2>jQ方法总结</h2>
+    <p></p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">实现左右div自适应相同高度</div>
+    <div class="content clearfix">
+        <div style="float: left; margin-right: 80px;" class="clearfix">
+            <div style="float: left; background-color: #ddd; padding: 10px;">左侧div</div>
+            <div style="float: left; background-color: #999; padding: 10px;">
+                <div>右侧div</div>
+                <div>右侧div</div>
+                <div>右侧div</div>
+                <div>右侧div</div>
+                <div>右侧div</div>
+                <div>右侧div</div>
+            </div>
+        </div>
+        <div style="float: left;" class="clearfix">
+            <div id="left" style="float: left; background-color: #ddd; padding: 10px;">左侧div</div>
+            <div id="right" style="float: left; background-color: #999; padding: 10px;">
+                <div>右侧div</div>
+                <div>右侧div</div>
+                <div>右侧div</div>
+                <div>右侧div</div>
+                <div>右侧div</div>
+                <div>右侧div</div>
+            </div>
+        </div>
+    </div>
+    <p>autoHeight(left, right)方法。传入代表左右标签的DOM元素（id或类名）。如：autoHeight($("#left"),$("#right"));</p>
+    <p>最好不用CSS固定死，不然没有灵活性。</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">获取鼠标在屏幕中的坐标</div>
+    <div class="content">
+        鼠标当前屏幕的坐标：<span class="screen"></span>
+    </div>
+    <p>screenX、screenY。参考系是屏幕不是浏览器窗口。窗口缩小后更明显</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">获取鼠标在窗口客户区中的坐标</div>
+    <div class="content">
+        鼠标当前窗口客户区的坐标：<span class="client"></span>
+    </div>
+    <p>clientX、clientY。参考系是浏览器窗口不包括滚动条和顶部导航菜单的部分。</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">获取鼠标在窗口页面中的坐标</div>
+    <div class="content">
+        鼠标当前窗口页面的坐标：<span class="page"></span>
+    </div>
+    <p>pageX、pageY。参考系是浏览器窗口包括滚动条和顶部导航菜单的部分</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">限制文本域中的字符个数</div>
+    <div class="content">
+        <textarea cols="60" rows="5" id="textArea-maxLen"></textarea>
+        <div>还可以输入<span class="numLen"></span>个字符</div>
+    </div>
+    <p>maxLength (content,num,numLen)方法。content指输入内容的元素，如input、textarea；
+        num指可以输入的字符数，根据实际设定（取整数）；numLen指提示还可以输入多少文字的位置元素；
+    </p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">全选、反选</div>
+    <div class="content">
+
+    </div>
+</div>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="../script/jq-function.js"></script>
+<script>
+    $(function () {
+        //实现左右div自适应相同高度
+        autoHeight($("#left"),$("#right"));
+
+        //获取鼠标在屏幕中的坐标
+        $(document).mousemove(function(e){
+            getScreen(e, $(".screen"));
+        });
+
+        //获取鼠标在窗口客户区中的坐标
+        $(document).mousemove(function(e){
+            getClient(e, $(".client"));
+        });
+
+        //获取鼠标在窗口页面中的坐标
+        $(document).mousemove(function(e){
+            getPage(e,$(".page"));
+        });
+
+        //限制文本域中的字符个数
+        maxLength($("#textArea-maxLen"), 10.6, $(".numLen"));
+
+        //全选、反选
+        allSelect($(".allselect"),$(".select"));
+
+    });
+</script>
+
+</body>
+</html>

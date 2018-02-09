@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>筛选</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/screen.css">
+</head>
+<body>
+
+<div class="inner index-title">
+    <h2>筛选功能</h2>
+    <p>条件筛选，每个分类可选择多个条件,可根据需要修改选择条件，这里做的没有天猫现有的筛选功能好，
+        缺少更多，多选等功能，现在只是仿写，需要后期补一些功能上去</p>
+    <p>默认、价格排序这里写的不好，要改进</p>
+</div>
+
+<div class="screen-area inner">
+    <div class="title clearfix">
+        <span>筛选条件</span>
+        <ul></ul>
+    </div>
+    <ul class="content">
+        <li class="clearfix">
+            <div class="classify">分类一</div>
+            <ul class="clearfix">
+                <li>条件1条件1条件1条件1条件1条件1</li>
+                <li>条件2</li>
+                <li>条件3</li>
+                <li>条件4</li>
+                <li>条件5</li>
+                <li>条件6</li>
+                <li>条件1</li>
+                <li>条件2</li>
+                <li>条件3</li>
+                <li>条件4</li>
+                <li>条件5</li>
+                <li>条件6</li>
+            </ul>
+        </li>
+        <li class="clearfix">
+            <div class="classify">分类二</div>
+            <ul class="clearfix">
+                <li>条件1</li>
+                <li>条件2</li>
+                <li>条件3</li>
+                <li>条件4</li>
+                <li>条件5</li>
+                <li>条件6</li>
+            </ul>
+        </li>
+        <li class="clearfix">
+            <div class="classify">分类三</div>
+            <ul class="clearfix">
+                <li>条件1</li>
+                <li>条件2</li>
+                <li>条件3</li>
+                <li>条件4</li>
+                <li>条件5</li>
+                <li>条件6</li>
+            </ul>
+        </li>
+        <li class="clearfix">
+            <div class="classify">分类四</div>
+            <ul class="clearfix">
+                <li>条件1</li>
+                <li>条件2</li>
+                <li>条件3</li>
+                <li>条件4</li>
+                <li>条件5</li>
+                <li>条件6</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="sort-bar inner clearfix">
+    <ul class="type clearfix">
+        <li>
+            <div class="link active">默认</div>
+        </li>
+        <li>
+            <div class="link price">价格</div>
+            <ul class="box">
+                <li>由高到低</li>
+                <li>由低到高</li>
+            </ul>
+        </li>
+        <li>
+            <div class="link">销量</div>
+        </li>
+    </ul>
+    <div class="page-area clearfix">
+        <div class="page-total">
+            <span class="index">1</span>/22共<span class="total">322</span>条相关产品
+        </div>
+        <div class="page-previous"></div>
+        <div class="page-next"></div>
+    </div>
+</div>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script>
+    $(function () {
+        (function ($) {
+            var Screen = function(){};
+            //选择条件
+            Screen.prototype.selectScreen = function () {
+                var $this = $(this),
+                    text = $this.text(),  //选中的条件
+                    classfiy = $this.parents().siblings('.classify').text(),  //选中的条件对应的分类
+                    key = $this.index(),  //选中的条件的索引
+                    parentKey = $this.parents().parents('li').index();  //选中的条件对应的分类这一行的索引
+                    html = '<li>' +
+                        '<span class="classfiy-name" data-id ='+parentKey+'>'+ classfiy +'</span>' +
+                        '：' +
+                        '<span class="classfiy-content" data-id ='+key+'>'+ text +'</span>' +
+                        '<span class="close"></span>' +
+                        '</li>';  //用data属性保存index  方便在删除时使用
+                $this.hide();
+                $(".screen-area .title ul").append(html);
+            };
+            //删除条件
+            Screen.prototype.deleteScreen = function () {
+                var $this = $(this),
+                    key = $this.siblings('.classfiy-content').data('id'),  //条件的索引
+                    parentKey = $this.siblings('.classfiy-name').data('id'), //条件对应的分类这一行的索引
+                    oldContent = $(".screen-area .content > li");  //条件对应分类的行的标签
+                $this.parents("li").remove();
+                oldContent.eq(parentKey).children('ul').children('li').eq(key).show();  //通过两次索引判断删除的是哪一个条件
+            };
+            //执行
+            $(document).on("click",".screen-area .content > li ul li",Screen.prototype.selectScreen);
+            $(document).on("click",".screen-area .title ul li .close",Screen.prototype.deleteScreen);
+        })(jQuery);
+
+        //样式切换
+        (function($){
+            $(".type>li>.link").click(function(){
+                $(this).addClass("active").parents().siblings().children().removeClass("active");
+            });
+            $(".type>li>ul>li").click(function(){
+                $(this).parents(".box").siblings().addClass("active");
+                $(this).parents(".box").parents("li").siblings().children(".link").removeClass("active");
+            });
+        })(jQuery);
+
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+@charset "UTF-8";
+.shortcut {
+    height: 35px;
+    line-height: 34px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #e5e5e5;
+}
+.shortcut .left {
+    float: left;
+}
+.shortcut .right {
+    float: right;
+}
+.shortcut .left > li,
+.shortcut .right > li {
+    float: left;
+}
+.shortcut .left > li > a {
+    padding: 0 15px;
+    color: #2195DE;
+    border-left: 1px solid #b2b2b2;
+}
+.shortcut .left > li:first-child > a {
+    border-left: none;
+}
+.shortcut .left > li > a:hover {
+    text-decoration: underline;
+}
+.shortcut .right > li a {
+    color: #666;
+    padding: 0 15px;
+}
+.shortcut .right > li a:hover {
+    color: #2195DE;
+    text-decoration: underline;
+}
+.shortcut .right .info > a {
+    padding-right: 25px;
+    background: url("../images/base-icon/icon-arrow-down-gray.png") no-repeat 70px 4px;
+}
+.shortcut .right .info .info-box {
+    display: none;
+    position: absolute;
+    padding: 10px 0;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    margin-left: -1px;
+}
+.shortcut .right .info .info-box li {
+    line-height: 26px;
+}
+.shortcut .right .info:hover {
+    /*border-left: 1px solid #e5e5e5;*/
+    /*border-right: 1px solid #e5e5e5;*/
+    background-color: #fff;
+}
+.shortcut .right .info:hover > a {
+    background: url("../images/base-icon/icon-arrow-up-gray.png") no-repeat 70px 4px;
+}
+.shortcut .right .info:hover .info-box {
+    display: block;
+}
+.shortcut .right .collection > a {
+    padding-left: 25px;
+    background: url("../images/base-icon/icon-collection.png") no-repeat 6px -1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

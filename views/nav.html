@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>导航栏</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/nav.css">
+</head>
+<body>
+<div class="inner index-title">
+    <h2>网站主导航栏</h2>
+    <p>固定导航栏是1190px的，可以根据实际情况来确定，也可以选择是否通栏</p>
+    <p>仿bootstrap是用media属性实现970px屏的导航缩小隐藏的功能。只是仿写，具体功能不如bootstrap详细</p>
+    <p>想仿写一个的原因是有时候项目需要做成响应式，但是页面相对简单，只有表单查询和表格展示这类的功能，
+    那么引用一个bootstrap框架会使项目变重，没有大的意义，这种情况下自己写一些响应是比较好的</p>
+</div>
+
+<h2 class="inner" style="margin-bottom: 20px">固定宽度</h2>
+<nav class="nav-01">
+    <ul class="inner clearfix">
+        <li class="active"><a href="javascript:void (0)">首页</a></li>
+        <li><a href="javascript:void (0)">导航一</a></li>
+        <li><a href="javascript:void (0)">导航二</a></li>
+        <li><a href="javascript:void (0)">导航三</a></li>
+        <li><a href="javascript:void (0)">导航四</a></li>
+        <li><a href="javascript:void (0)">导航五</a></li>
+    </ul>
+</nav>
+
+<br>
+<br>
+<br>
+
+<h2 class="inner" style="margin-bottom: 20px">仿bootstrap--响应式导航</h2>
+<nav class="nav-02 clearfix">
+    <div class="nav-content clearfix">
+        <div class="logo">logo</div>
+        <div class="nav-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <ul class="clearfix">
+        <li><a href="javascript:void (0)">导航一</a></li>
+        <li><a href="javascript:void (0)">导航二</a></li>
+        <li><a href="javascript:void (0)">导航三</a></li>
+        <li><a href="javascript:void (0)">导航四</a></li>
+        <li><a href="javascript:void (0)">导航五</a></li>
+    </ul>
+</nav>
+
+<br>
+<br>
+<br>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script>
+    $(function () {
+        //导航栏点击样式切换
+        (function ($) {
+           var TabNav = function () {
+               var $this = $(this);
+               if (!($this.hasClass('active'))){
+                   $this.addClass('active').siblings().removeClass('active');
+               }
+           };
+            //执行
+            $(document).on("click",".nav-01 ul li",TabNav);
+            $(document).on("click",".nav-02 ul li",TabNav);
+        })(jQuery);
+
+        //小屏幕导航栏展开
+        (function ($) {
+            $(document).on("click",".nav-btn",function () {
+                var navList = $(this).parent().siblings("ul");
+                if(navList.css("display") == "none"){
+                    navList.show();
+                } else {
+                    navList.hide();
+                }
+            })
+        })(jQuery);
+
+    })
+</script>
+
+</body>
+</html>

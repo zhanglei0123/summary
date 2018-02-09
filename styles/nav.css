@@ -1,0 +1,114 @@
+@charset "UTF-8";
+.nav-01 {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #2195DE;
+}
+.nav-01 ul li {
+    float: left;
+}
+.nav-01 ul li a {
+    display: inline-block;
+    color: #fff;
+    padding: 0 30px;
+}
+.nav-01 ul .active {
+    background-color: #0A71B4;
+}
+.nav-01 ul li:hover {
+    background-color: #0A71B4;
+}
+
+/*仿bootstrap*/
+.nav-02 {
+    position: relative;
+}
+.nav-02 .nav-content {
+    padding: 0 30px;
+    font-size: 16px;
+    background-color: #2195DE;
+}
+.nav-02 .logo {
+    float: left;
+    color: #fff;
+    line-height: 50px;
+}
+.nav-02 ul {
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+}
+.nav-02 ul li {
+    float: left;
+    line-height: 50px;
+}
+.nav-02 ul .active {
+    background-color: #0A71B4;
+}
+.nav-02 ul li:hover {
+    background-color: #0A71B4;
+}
+.nav-02 ul li a {
+    color: #fff;
+    padding: 0 20px;
+}
+.nav-02 .nav-btn {
+    display: none;
+}
+@media (max-width: 960px) {
+    .nav-02 ul {
+        display: none;
+        position: static;
+        background-color: #2195DE;
+    }
+    .nav-02 ul li {
+        float: none;
+    }
+    .nav-02 ul li a {
+        display: block;
+    }
+    .nav-02 .nav-btn {
+        display: block;
+        height: 30px;
+        padding: 5px;
+        color: #fff;
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: #0A71B4;
+    }
+    .nav-02 .nav-btn span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        margin: 4px 0;
+        background-color: #fff;
+    }
+    .nav-02 .nav-btn:hover span {
+        height: 3px;
+        margin: 3px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

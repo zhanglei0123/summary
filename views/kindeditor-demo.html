@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>富文本编辑器示例</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../styles/common.css">
+</head>
+<style>
+    textarea {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+<body>
+
+<div class="inner index-title">
+    <h2>富文本编辑器--kindediter</h2>
+    <p>1、原插件中编辑器最小宽度为650，最小高度为100，可以设置textarea的宽高，编辑器自适应</p>
+    <p>2、item参数：配置编辑器的工具栏，其中”/”表示换行，”|”表示分隔符</p>
+    <p>3、resizeType：2或1或0，2时可以拖动改变宽度和高度，1时只能改变高度，0时不能拖动。</p>
+    <p>4、pasteType：设置粘贴类型，0:禁止粘贴, 1:纯文本粘贴, 2:HTML粘贴</p>
+    <p>5、dialogAlignType：设置弹出框(dialog)的对齐类型，可设置''“、”page”，指定page时按当前页面居中，指定空时按编辑器居中。</p>
+    <p>6、shadowMode：true时弹出层(dialog)显示阴影。</p>
+    <p>7、useContextmenu：true时使用右键菜单，false时屏蔽右键菜单。</p>
+    <p>8、syncType：同步数据的方式，可设置”“、”form”，值为form时提交form时自动同步，空时不会自动同步。</p>
+    <p>9、afterCreate：设置编辑器创建后执行的回调函数。</p>
+    <p>10、afterChange：编辑器内容发生变化后执行的回调函数。</p>
+    <p>11、afterTab：按下TAB键后执行的的回调函数。</p>
+    <p>12、afterFocus：编辑器聚焦(focus)时执行的回调函数。 afterBlur：编辑器失去焦点(blur)时执行的回调函数。
+        afterUpload：上传文件后执行的回调函数。</p>
+    <p>13、在插件功能里面有几个初始化参数，
+        uploadJson:指定上传文件的服务器端程序。默认值: basePath + ‘php/upload_json.php’
+        fileManagerJson：指定浏览远程图片的服务器端程序。
+        allowPreviewEmoticons：true时鼠标放在表情上可以预览表情。
+        allowImageUpload：true时显示图片上传按钮。
+        allowFlashUpload：true时显示Flash上传按钮。
+        allowMediaUpload：true时显示视音频上传按钮。
+        allowFileUpload：true时显示文件上传按钮。
+        allowFileManager：true时显示浏览远程服务器按钮。
+        imageTabIndex：图片弹出层的默认显示标签索引。
+        formatUploadUrl：false时不会自动格式化上传后的URL。
+        extraFileUploadParams：上传图片、Flash、视音频、文件时，支持添加别的参数一并传到服务器。
+    </p>
+    <p>不是很熟，没有与后台对接过，以后使用可能坑比较多</p>
+</div>
+
+<div class="inner" style="margin-bottom: 50px">
+    <textarea class="demo-01"></textarea>
+</div>
+
+<script src="../plugins/kindeditor/kindeditor-all.js"></script>
+<script>
+    KindEditor.ready(function(K) {
+        window.editor = K.create('.demo-01',{
+            resizeType: 0
+        });
+    });
+
+</script>
+
+</body>
+</html>

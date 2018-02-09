@@ -1,0 +1,107 @@
+/*laypage默认样式*/
+.laypage_main {
+    font-size: 0;
+    clear: both;
+    color: #666;
+}
+.laypage_main * {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+}
+.laypage_main a {
+    color: #666;
+    height: 30px;
+    line-height: 28px;
+    margin: 0 6px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.laypage_main span {
+    height: 30px;
+    line-height: 28px;
+    color: #999;
+    margin: 0 6px;
+    padding: 0 10px;
+}
+/*跳页时用到*/
+.laypage_main input {
+    width: 40px;
+    height: 26px;
+    line-height: 26px;
+    margin: 0 5px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+.laypage_main button {
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    margin-left: 5px;
+    padding: 0 10px;
+    color: #666;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+
+/*默认皮肤带边框、当前选中的页数*/
+.laypageskin_default a {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+.laypageskin_default .laypage_curr {
+    font-weight: 700;
+    color: #666
+}
+/*雅黑皮肤*/
+.laypageskin_yahei button,
+.laypageskin_yahei input,
+.laypageskin_yahei a {
+    border: 1px solid #ccc;
+    background-color: #fff
+}
+.laypageskin_yahei .laypage_curr {
+    background-color: #333;
+    color: #fff
+}
+/*墨绿皮肤*/
+.laypageskin_molv button,
+.laypageskin_molv input,
+.laypageskin_molv a {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    /*background-color: #f1eff0*/
+}
+.laypageskin_molv .laypage_curr {
+    background-color: #00AA91;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.laypageskin_flow {
+    text-align: center
+}
+
+.laypageskin_flow .page_nomore {
+    color: #999
+}

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS--图形</title>
+    <link rel="stylesheet" type="text/css" href="../styles/common.css">
+    <link rel="stylesheet" type="text/css" href="../styles/grap.css">
+</head>
+<body>
+
+<ul class="index-area">
+    <li>目录</li>
+    <li><a href="#circle">圆及椭圆</a></li>
+    <li><a href="#triangle">三角</a></li>
+    <li><a href="#parallelogram">平行四边形</a></li>
+    <li><a href="#trapezoid">梯形</a></li>
+    <li><a href="#pentagon">五边形</a></li>
+    <li><a href="#hexagon">六边形</a></li>
+    <li><a href="#octagon">八边形</a></li>
+    <li><a href="#burst-12">十二角星</a></li>
+    <li><a href="#heart">爱心</a></li>
+    <li><a href="#infinity">无穷大</a></li>
+    <li><a href="#pacman">食豆人</a></li>
+    <li><a href="#cut-diamond">钻石</a></li>
+    <li><a href="#egg">蛋形</a></li>
+    <li><a href="#sector">扇形</a></li>
+    <li><a href="#moon">月牙</a></li>
+    <li><a href="#yin-yang">八卦图</a></li>
+</ul>
+
+<div class="inner index-title">
+    <h2>纯CSS实现各种图形</h2>
+    <p>起初是因为帮人做一个六边形网格布局的页面的时候发现这种布局的插件，研究代码后知道了实现原理，
+        所以自己写了一下，但是没有用响应式。然后发现网上好多总结的这种图形写法，于是参考了网上现有的，
+        加上自己琢磨的，总结了一套自己的来用，同时发现网上的一些代码是有错误的，自己进行了修正和补全。</p>
+    <p>每种图形的画法都做了备注，防止以后看代码看不懂。单独的CSS文件</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="circle"></a>
+    <div class="title">圆及椭圆</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="circle"></div>
+            </li>
+            <li>
+                <div class="oval"></div>
+            </li>
+            <li>
+                <div class="ring"></div>
+            </li>
+        </ul>
+    </div>
+    <p>圆：宽高一样，border-radius设为宽高的一半或者50%</p>
+    <p>椭圆：border-radius:水平半径/垂直半径</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="triangle"></a>
+    <div class="title">三角及使用三角实现图形</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="triangle-left"></div>
+            </li>
+            <li>
+                <div class="triangle-bottom"></div>
+            </li>
+            <li>
+                <div class="triangle-right"></div>
+            </li>
+            <li>
+                <div class="triangle-top"></div>
+            </li>
+            <li>
+                <div class="triangle-zhijiao"></div>
+            </li>
+            <li>
+                <div class="triangle-arrow"></div>
+            </li>
+            <li>
+                <div class="triangle-tip"></div>
+            </li>
+        </ul>
+    </div>
+    <p>以向上三角为例：等边三角形设置border-bottom宽度实线颜色，左右border左右宽度为一半，实线透明。其余三角按实际调整</p>
+    <p>直角三角形：border-top设置宽度实线颜色，border-right等宽实线透明。右上三角、左下三角、右下三角可举一反三实现。</p>
+    <p>箭头和提示框可以使用before或者after实现</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="parallelogram"></a>
+    <div class="title">平行四边形</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="parallelogram"></div>
+            </li>
+        </ul>
+    </div>
+    <p>transform: skew，倾斜角度即为四边形锐角的余角</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="trapezoid"></a>
+    <div class="title">梯形</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="trapezoid"></div>
+            </li>
+        </ul>
+    </div>
+    <p>上底长为width的值，下底长为width+border-left+border-right之和，高为border-bottom</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="pentagon"></a>
+    <div class="title">五边形</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li style="margin-top: 50px">
+                <div class="pentagon"></div>
+            </li>
+            <li style="margin-top: 50px">
+                <div class="star-five"></div>
+            </li>
+        </ul>
+    </div>
+    <p style="margin-top: 30px">由梯形和三角形拼成。因为定位旋转而成，可能出现遮盖现象，注意调整位置</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="hexagon"></a>
+    <div class="title">六边形</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="hexagon"></div>
+            </li>
+            <li>
+                <div class="hidden-box">
+                    <div class="hexagon2">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="star-six"></div>
+            </li>
+            <li>
+                <div class="hexagon4"></div>
+            </li>
+            <li class="clearfix" style="width: 400px;">
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+                <div class="hidden-box hexagon-box">
+                    <div class="hexagon-hexagon">
+                        <div class="hexagon-in"><img src="../images/timg.jpg"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <p>将六边形分成一个矩形，两个三角形利用before、after实现。这样的做法是中间只能做文字</p>
+    <p>通过将四边形旋转拉伸和overflow：hidden属性实现一个空心的六边形，可放置图片，但是边框连接不紧密</p>
+    <p>由于利用三角形没法实现空心，所以六角星和六芒星的实现方式不同</p>
+    <p>六边形网格布局扩展(nth-child方法)</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="octagon"></a>
+    <div class="title">八边形</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="hidden-box">
+                    <div class="octagon"></div>
+                </div>
+            </li>
+            <li>
+                <div class="burst-8"></div>
+            </li>
+        </ul>
+    </div>
+    <p>两个正方形旋转一定的角度利用overflow：hidden实现。更改边框或者背景颜色实现空心或者实心</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="burst-12"></a>
+    <div class="title">十二角星</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="burst-12"></div>
+            </li>
+        </ul>
+    </div>
+    <p>用三个正方形旋转形成，与八角星原理相同。</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="heart"></a>
+    <div class="title">爱心</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="heart"></div>
+            </li>
+        </ul>
+    </div>
+    <p>两个矩形，一边分别取圆角，旋转拼接</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="infinity"></a>
+    <div class="title">无穷大</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="infinity"></div>
+            </li>
+            <li>
+                <div class="infinity2"></div>
+            </li>
+        </ul>
+    </div>
+    <p>对border-radius产生的形状有了新的认识，图二是瞎弄的</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="pacman"></a>
+    <div class="title">食豆人</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="pacman"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="inner detail-content">
+    <a name="cut-diamond"></a>
+    <div class="title">钻石</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li style="margin-bottom: 30px">
+                <div class="cut-diamond"></div>
+            </li>
+        </ul>
+    </div>
+    <p>梯形与三角拼接</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="egg"></a>
+    <div class="title">蛋形</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="egg"></div>
+            </li>
+        </ul>
+    </div>
+    <p>椭圆形的变体，高度比宽度稍大，设置正确的border-radius属性</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="sector"></a>
+    <div class="title">扇形</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="sector"></div>
+            </li>
+        </ul>
+    </div>
+    <p>不需要半圆和三角拼接，只是让三角形有弧度即可</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="moon"></a>
+    <div class="title">月牙</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="moon"></div>
+            </li>
+            <li>
+                <div class="moon2"></div>
+            </li>
+        </ul>
+    </div>
+    <p>利用box-shadow实现。图二自己瞎搞的</p>
+</div>
+
+<div class="inner detail-content">
+    <a name="yin-yang"></a>
+    <div class="title">八卦图</div>
+    <div class="content">
+        <ul class="clearfix">
+            <li>
+                <div class="yin-yang"></div>
+            </li>
+        </ul>
+    </div>
+    <p>关键在于中间黑白两个圆环的设置</p>
+</div>
+
+<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="../script/common.js"></script>
+
+</body>
+</html>

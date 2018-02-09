@@ -1,0 +1,173 @@
+@charset "UTF-8";
+/*.screen-area {*/
+    /*background-color: #F7F5F5;*/
+    /*border: 1px solid #e5e5e5;*/
+/*}*/
+.screen-area .title {
+    min-height: 40px;
+    margin-bottom: 10px;
+    background-color: #F7F5F5;
+    border: 1px solid #e5e5e5;
+}
+.screen-area .title > span {
+    float: left;
+    width: 100px;
+    padding-left: 20px;
+    line-height: 40px;
+    color: #2195DE;
+    font-size: 14px;
+    font-weight: bold;
+}
+.screen-area .title ul {
+    float: left;
+    width: 1088px;
+}
+.screen-area .title ul li {
+    float: left;
+    line-height: 22px;
+    padding: 0 10px;
+    margin: 8px 30px 8px 0;
+    border: 1px solid #2195DE;
+    background-color: #fff;
+}
+.screen-area .title ul li .classfiy-content {
+    color: #2195DE;
+}
+.screen-area .title ul li .close {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: 15px;
+    text-align: right;
+    cursor: pointer;
+    background: url("../images/base-icon/icon-close-gray-10X10.png") no-repeat;
+}
+.screen-area .content {
+    background-color: #F7F5F5;
+    border: 1px solid #e5e5e5;
+}
+.screen-area .content > li {
+    line-height: 30px;
+    border-top: 1px dotted #e5e5e5;
+}
+.screen-area .content > li .classify {
+    float: left;
+    width: 100px;
+    padding-left: 20px;
+}
+.screen-area .content > li ul {
+    float: left;
+    width: 1088px;
+    background-color: #fff;
+}
+.screen-area .content > li ul li {
+    float: left;
+    padding: 0 20px;
+    cursor: pointer;
+}
+.screen-area .content > li ul li:hover {
+    color: #2195DE;
+}
+
+.sort-bar {
+    height: 40px;
+    line-height: 38px;
+    background-color: #F7F5F5;
+    border: 1px solid #e5e5e5;
+    margin-top: 30px;
+}
+.sort-bar .type {
+    float: left;
+}
+.sort-bar .type > li {
+    float: left;
+    border-right: 1px solid #e5e5e5;
+    cursor: pointer;
+    position: relative;
+}
+.sort-bar .type>li .link {
+    padding: 0 20px;
+    text-align: center;
+}
+.sort-bar .type>li .link:hover {
+    background-color: #2195DE;
+    color: #fff;
+}
+.sort-bar .type>li .active {
+    background-color: #2195DE;
+    color: #fff;
+}
+.sort-bar .type>li:hover .box {
+    display: block;
+}
+.sort-bar .type>li .box {
+    display: none;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    z-index: 99;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    width: 100px;
+}
+.sort-bar .type>li .box li {
+    line-height: 30px;
+    text-align: center;
+}
+.sort-bar .type>li .box li:hover {
+    color: #2195DE;
+}
+.sort-bar .page-area {
+    float: right;
+}
+.sort-bar .page-area .page-total,
+.sort-bar .page-area .page-previous,
+.sort-bar .page-area .page-next {
+    float: left;
+}
+.sort-bar .page-area .page-total {
+    padding: 0 10px;
+    text-align: center;
+    border-left: 1px solid #e5e5e5;
+}
+.sort-bar .page-area .page-total .index {
+    color: #2195DE;
+}
+.sort-bar .page-area .page-total .total {
+    color: #2195DE;
+}
+.sort-bar .page-area .page-previous {
+    width: 40px;
+    height: 38px;
+    border-left: 1px solid #e5e5e5;
+    cursor: pointer;
+    background: url("../images/base-icon/icon-arrow-left-gray.png") no-repeat center;
+}
+.sort-bar .page-area .page-previous:hover {
+    background: #ffda73 url("../images/base-icon/icon-arrow-left-white.png") no-repeat center;
+}
+.sort-bar .page-area .page-next {
+    width: 40px;
+    height: 38px;
+    border-left: 1px solid #e4e4e4;
+    cursor: pointer;
+    background: url("../images/base-icon/icon-arrow-right-gray.png") no-repeat center;
+}
+.sort-bar .page-area .page-next:hover {
+    background: #ffda73 url("../images/base-icon/icon-arrow-right-white.png") no-repeat center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
