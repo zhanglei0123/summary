@@ -77,4 +77,47 @@ function allSelect (allSelect, select) {
     });
 }
 
+//模拟抽奖
+function luckDraw (alldata, luckDrawCount, time, startBtn, stopBtn){
+    var alldataarr = alldata.split(",");
+    var num = alldataarr.length;
+    var timer;
+    function getramdom(min,max){
+        return parseInt(Math.random() * (max - min));
+    }
+    function change() {
+        if (luckDrawCount > num) {
+            return;
+        }
+        //创建一个数组来接收选中的index
+        var arr = [];
+        for (var i = 0; i < luckDrawCount; i++) {
+            var temp = getramdom(0,num)
+            if (arr.indexOf(temp) == -1) {
+                arr.push(temp);
+            }
+        }
+        var str = '';
+        for (var i = 0; i < arr.length; i++) {
+            str = str + alldataarr[arr[i]];
+        }
+        $("#award").html(str);
+    }
+    function start(){
+        clearInterval(timer);
+        timer = setInterval(function(){
+            change();
+        },time);
+    }
+    function stop(){
+        clearInterval(timer);
+    }
+    startBtn.click(function () {
+        start();
+    });
+    stopBtn.click(function () {
+       stop();
+    });
+}
+
 
