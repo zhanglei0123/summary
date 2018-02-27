@@ -482,6 +482,24 @@ ul li {
     border: 18px solid #fff;
     border-radius:50%;
 }
+/*用阴影实现3D效果*/
+.shadow {
+    color: #f0f0f0;
+    font-size: 20px;
+    text-shadow: 0 0 0 #888,
+                -1px -1px 0 #777,
+                -2px -2px 1px #666,
+                -3px -3px 1px #555,
+                -4px -4px 2px #444,
+                -5px -5px 3px #333,
+                -6px -6px 4px #000,
+                1px 1px 5px #ccc,
+                2px 2px 5px #ccc,
+                3px 3px 5px #ccc,
+                4px 4px 5px #ccc,
+                5px 5px 5px #ccc,
+                6px 6px 5px #ccc;
+}
 
 
 

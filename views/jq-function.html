@@ -109,6 +109,26 @@
         <input type="button" value="开始" class="start" style="line-height: 30px; padding: 0 10px;margin-top: 10px">
         <input type="button" value="停止" class="stop"  style="line-height: 30px; padding: 0 10px;margin-top: 10px">
     </div>
+    <p>luckDraw (alldata, luckDrawCount, time, award, startBtn, stopBtn)方法。alldata为自行设定的字符串,
+        用逗号“,”隔开。luckDrawCount为每次显示的人数（每次抽取一人或者五人等），time为每组人变换的时间，
+        award是抽取出来的人数显示的位置，startBtn和stopBtn是开始按钮和停止按钮。
+    </p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">数组模拟打字效果</div>
+    <div class="content">
+        <div id="word">数组模拟打字效果数组模拟打字效果数组模拟打字效果数组模拟打字效果数组模拟打字效果</div>
+    </div>
+    <p>要是等看到这里没有效果，那就刷新。</p>
+    <p>word (element,speed)方法。element是需要显示效果的容器标签。speed是效果显示的时间间隔</p>
+</div>
+
+<div class="inner detail-content">
+    <div class="title">清除所有的表单内容</div>
+    <div class="content">
+        <p>不做展示。方法为：clearForm(form)。其中参数form是需要进行清空的表单元素。</p>
+    </div>
 </div>
 
 <script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
@@ -141,7 +161,10 @@
 
         //模拟抽奖
         var alldata = "王,张,李,刘,丁,吴,马,吕";
-        luckDraw (alldata, 3, 500, $(".start"), $(".stop"));
+        luckDraw (alldata, 3, 500, $("#award"), $(".start"), $(".stop"));
+
+        //数组模拟打字效果
+        word($("#word"),500);
 
     });
 </script>

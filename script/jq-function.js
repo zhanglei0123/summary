@@ -78,7 +78,7 @@ function allSelect (allSelect, select) {
 }
 
 //模拟抽奖
-function luckDraw (alldata, luckDrawCount, time, startBtn, stopBtn){
+function luckDraw (alldata, luckDrawCount, time, award, startBtn, stopBtn){
     var alldataarr = alldata.split(",");
     var num = alldataarr.length;
     var timer;
@@ -101,7 +101,7 @@ function luckDraw (alldata, luckDrawCount, time, startBtn, stopBtn){
         for (var i = 0; i < arr.length; i++) {
             str = str + alldataarr[arr[i]];
         }
-        $("#award").html(str);
+        award.html(str);
     }
     function start(){
         clearInterval(timer);
@@ -119,5 +119,39 @@ function luckDraw (alldata, luckDrawCount, time, startBtn, stopBtn){
        stop();
     });
 }
+
+//数组模拟打字效果
+function word (element,speed){
+    var text = element.text(),
+        wordArray = text.split(""),
+        length = wordArray.length,
+        i = 0;
+    element.empty();
+    INV = setInterval(function(){
+        if(i >= length -1){
+            clearInterval(INV);
+        }
+        element.append(wordArray[i]);
+        i++;
+    },speed);
+}
+
+//清除所有的表单内容
+function clearForm(form){
+    $(":input",form).each(function(){
+        var type = this.type,
+            tag = this.tagName;
+        if(type == "text" || type == "password" || tag == "textarea"){
+            this.value = "";
+        } else if(type == "checkbox" || type == "radio"){
+            this.checked = false;
+        } else if(tag == "select"){
+            this.selectedIndex = -1;
+        }
+    });
+}
+clearForm($("#form"));
+
+
 
 
