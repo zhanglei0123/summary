@@ -22,7 +22,6 @@
 `data`字段：
 
 | 参数 | 类型   | 描述     |
-| ---- | ------ | -------- |
 | db_count | Number | 凭据数 |
 | instance_count | Number | 实例数 |
 | server_count | Number | 主机数 |
