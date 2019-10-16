@@ -482,7 +482,7 @@
             "id": 13,
             "is_deleted": false,
             "next_time": "",
-            "time_type": "now",
+            "time_type": "now"
         },
         "type_name": "立即执行",
         "when_created": "2019-10-14 15:00:48"
@@ -813,7 +813,7 @@
         "script_content": "执行脚本",
         "script_type": "脚本类型",
         "when_created": "创建时间",
-        "when_modified": "修改时间",
+        "when_modified": "修改时间"
     }],
     "result": true
 }
@@ -932,11 +932,11 @@
 {
     "is_checked": false,
     "data": [{
-        "id": 8
+        "id": 8,
         "status": "COMPLETE",
         "summary": "本次共巡检2个数据库，完成2个",
         "task_name": "定时任务测试",
-        "when_created": "2019-10-15 10:37:36",
+        "when_created": "2019-10-15 10:37:36"
     }],
     "result": true
 }
@@ -1123,12 +1123,12 @@
             "db_info": "",
             "instance_info": [],
             "server_info": {
-                "cpu_info": "Intel Core Processor (Broadwell) x 8",  // cpu信息
-                "disk_info": "本地磁盘数：2，本地磁盘总量：343.6GB",  // 磁盘信息
-                "hostname": "vsjs-bk-paas-2.novalocal",  // 主机名
-                "ip_address": "10.77.65.49", // ip地址
-                "mem_info": "15.66G",  // 内存大小
-                "os": "CentOS release",  // 操作系统
+                "cpu_info": "Intel Core Processor (Broadwell) x 8",
+                "disk_info": "本地磁盘数：2，本地磁盘总量：343.6GB",
+                "hostname": "vsjs-bk-paas-2.novalocal",
+                "ip_address": "10.77.65.49",
+                "mem_info": "15.66G", 
+                "os": "CentOS release"
             }
         },
         "custom_info": {
@@ -1378,5 +1378,3 @@
 }
 
 ```
-
-
