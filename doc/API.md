@@ -13,7 +13,7 @@
 返回结果
 
 | 参数 | 类型 | 描述 |
-| ------ | ------- | -------- |
+| --- | --- | --- |
 | data | List | 数据 |
 | report_list | List | 数据 |
 | task_list | List | 数据 |
@@ -21,7 +21,8 @@
 
 `data`字段：
 
-| 参数 | 类型   | 描述     |
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
 | db_count | Number | 凭据数 |
 | instance_count | Number | 实例数 |
 | server_count | Number | 主机数 |
@@ -29,15 +30,15 @@
 
 `report_list`字段：
 
-| 参数 | 类型   | 描述     |
-| ---- | ------ | -------- |
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
 | id | Number | 报告Id |
 | text | String | 报告详情 |
 
 `task_list`字段：
 
-| 参数 | 类型   | 描述     |
-| ---- | ------ | -------- |
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
 | categories | List | 月数 |
 | name | String | 本月巡检次数 |
 
